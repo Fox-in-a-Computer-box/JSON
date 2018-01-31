@@ -1,0 +1,21 @@
+import urllib.request, urllib.parse, urllib.error
+import json
+
+urlinp = input("Enter a URL:")
+
+urlopn = urllib.request.urlopen(urlinp)
+
+urlread = urlopn.read()
+
+datajson = json.loads(urlread)
+
+#print(datajson)
+
+#print(datajson['comments'])
+total = 0
+
+for item in datajson['comments']:
+    numsum = int(item['count'])
+    total = total + numsum
+    
+print(total)
